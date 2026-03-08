@@ -3,15 +3,16 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:store_app/constants/service_constants.dart';
 import 'package:store_app/models/product_model.dart';
+import 'package:store_app/service/api_service.dart';
 
 class GetProductByCategoy {
   final Dio dio = Dio(BaseOptions(baseUrl: ServiceConstants.baseUrl));
 
   Future<List<ProductModel>> getproductsbycategory(String categoryName) async {
-    final Response response = await dio.get("products/category/$categoryName");
+    
 
-    if (response.statusCode == 200) {
-      List<dynamic> data = response.data;
+    
+      List<dynamic> data = await ApiService().get(endpoints: "products/category/$categoryName");
 
       List<ProductModel> productsBycategory = [];
 
@@ -20,8 +21,6 @@ class GetProductByCategoy {
       }
 
       return productsBycategory;
-    } else {
-      throw Exception("erro by request${response.statusMessage}");
-    }
+   
   }
 }
