@@ -31,5 +31,23 @@ class ApiService {
     } else {
       throw Exception(response.statusMessage);
     }
+  } 
+
+  Future<dynamic> put({
+    required String endpoints,
+    required ProductModel body,
+  }) async {
+    Response response = await dio.post(endpoints, data: {
+      "title": body.name,
+      "price":body.price,
+      "description":body.description,
+      "image":body.image,
+      "category":body.category
+    });
+    if (response.statusCode == 200) {
+      return response.data;
+    } else {
+      throw Exception(response.statusMessage);
+    }
   }
 }
