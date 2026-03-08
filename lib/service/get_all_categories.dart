@@ -6,7 +6,11 @@ class GetAllCategories {
 
   Future<List<dynamic>> getAllCategories() async {
     final Response response = await dio.get("products/categories");
-    List<dynamic> categories = response.data;
-    return categories;
+    if (response.statusCode == 200) {
+      List<dynamic> categories = response.data;
+      return categories;
+    } else {
+      throw Exception(response.statusMessage);
+    }
   }
 }
