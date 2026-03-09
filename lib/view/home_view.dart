@@ -16,10 +16,14 @@ class HomeView extends StatelessWidget {
           IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.cart)),
         ],
       ),
-      body: Column(
-        children: [
-          CardItem()
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+         
+          children: [
+            CardItem()
+          ],
+        ),
       ),
     );
   }
