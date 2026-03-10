@@ -8,21 +8,29 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text("Store app"),
+        backgroundColor: Colors.grey.shade200,
+        title: Text("Store App"),
         centerTitle: true,
         actions: [
           IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.cart)),
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-         
-          children: [
-            CardItem()
-          ],
+        padding: const EdgeInsets.symmetric(horizontal:  8.0 , vertical: 15),
+        child: GridView.builder(
+          clipBehavior: Clip.none,
+          itemCount: 8,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+         crossAxisCount :2,
+           childAspectRatio: 1.2,
+           crossAxisSpacing: 10,
+           mainAxisSpacing: 40
+          ),
+          itemBuilder: (context, index) {
+            return const CardItem();
+          },
         ),
       ),
     );

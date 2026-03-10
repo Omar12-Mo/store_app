@@ -38,9 +38,9 @@ class CardItem extends StatelessWidget {
         ),
          Positioned(
           left: 40,
-          bottom: 70,
+          top: -20,
            child: Image.network(
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCoGtnOF2x3rvnwZJW9S1E_3RmXct-CYvZKg&s",
+                  "https://static.vecteezy.com/system/resources/thumbnails/057/068/323/small/single-fresh-red-strawberry-on-table-green-background-food-fruit-sweet-macro-juicy-plant-image-photo.jpg",
                   width: 100,
                   height: 90,
                   fit: BoxFit.cover,
